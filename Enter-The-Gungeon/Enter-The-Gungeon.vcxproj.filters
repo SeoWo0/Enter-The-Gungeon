@@ -46,9 +46,6 @@
     <Filter Include="Object">
       <UniqueIdentifier>{58916fc6-8792-40f6-a2bb-43bb86f2a1af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Character">
-      <UniqueIdentifier>{d7bae88c-67cb-4b49-982a-90f5f375c4f8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\Tile">
       <UniqueIdentifier>{6e612200-fb10-4102-8a1f-3c93855b3ee1}</UniqueIdentifier>
     </Filter>
@@ -162,6 +159,12 @@
     <ClInclude Include="CScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Cscene_Title.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCollider.cpp">
@@ -242,6 +245,12 @@
     <ClCompile Include="CScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Cscene_Title.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Enter-The-Gungeon.rc">
@@ -255,5 +264,8 @@
     <Image Include="Enter-The-Gungeon.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
