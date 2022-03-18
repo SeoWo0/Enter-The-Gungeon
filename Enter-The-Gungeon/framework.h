@@ -39,8 +39,9 @@ using namespace std;
 enum class GROUP_GAMEOBJ
 {
 	DEFAULT,
-	TILE,
+	BACKGROUND,
 	MAP,
+	TILE,
 	PLAYER,
 	MONSTER,
 	MISSILE_PLAYER,
@@ -53,12 +54,25 @@ enum class GROUP_GAMEOBJ
 enum class GROUP_SCENE
 {
 	TOOL,
-	START,
-	STAGE_01,
-	STAGE_02,
+	TITLE,
+	STAGE,
+	
+	SIZE,
+};
+
+
+enum class MON_STATE
+{
+	IDLE,
+	PATROL,
+	TRACE,
+	ATT,
+	RUN,
+	DEAD,
 
 	SIZE,
 };
+
 
 //========================================
 //## 이벤트 타입					##

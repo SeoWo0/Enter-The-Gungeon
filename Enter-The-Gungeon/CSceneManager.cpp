@@ -1,6 +1,6 @@
 #include "framework.h"
 #include "CSceneManager.h"
-#include "CScene.h"
+#include "CScene_Title.h"
 
 CSceneManager::CSceneManager()
 {
@@ -44,7 +44,11 @@ void CSceneManager::render()
 
 void CSceneManager::init()
 {
+	m_arrScene[(size_t)GROUP_SCENE::TITLE] = new CScene_Title;
+	m_arrScene[(size_t)GROUP_SCENE::TITLE]->SetName(L"Title_Scene");
 
+	m_pCurScene = m_arrScene[(size_t)GROUP_SCENE::TITLE];
+	m_pCurScene->Enter();
 }
 
 CScene* CSceneManager::GetCurScene()

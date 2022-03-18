@@ -61,6 +61,15 @@
     <Filter Include="Resource\CD2DImage">
       <UniqueIdentifier>{631a62cd-2e82-4ccd-b3ad-b45f4d32936d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Component\AI">
+      <UniqueIdentifier>{0e17342e-df48-44ee-86a6-6035dab30e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\AI\State">
+      <UniqueIdentifier>{8735b109-95fb-4b1f-a9a6-b2c02a80233f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Title">
+      <UniqueIdentifier>{7299c995-dc2f-4a5c-9046-23d3fc0e2aec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -159,11 +168,26 @@
     <ClInclude Include="CScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Cscene_Title.h">
+    <ClInclude Include="CScene_Title.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="CPlayer.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Engine\Component\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="CState.h">
+      <Filter>Engine\Component\AI\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CIdleState.h">
+      <Filter>Engine\Component\AI\State</Filter>
+    </ClInclude>
+    <ClInclude Include="CImageObject.h">
+      <Filter>Object\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="CImageButton.h">
+      <Filter>Object\Title</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,11 +269,26 @@
     <ClCompile Include="CScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Cscene_Title.cpp">
+    <ClCompile Include="CScene_Title.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="CPlayer.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Engine\Component\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="CState.cpp">
+      <Filter>Engine\Component\AI\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CIdleState.cpp">
+      <Filter>Engine\Component\AI\State</Filter>
+    </ClCompile>
+    <ClCompile Include="CImageObject.cpp">
+      <Filter>Object\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="CImageButton.cpp">
+      <Filter>Object\Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
