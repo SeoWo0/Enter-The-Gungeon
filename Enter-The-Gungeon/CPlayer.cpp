@@ -40,6 +40,6 @@ void CPlayer::update()
 void CPlayer::render(HDC hDC)
 {
 	Rectangle(hDC,
-			
+			(int)GetPos().x
 				)
 }
