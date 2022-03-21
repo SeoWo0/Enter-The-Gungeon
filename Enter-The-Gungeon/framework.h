@@ -64,10 +64,8 @@ enum class GROUP_SCENE
 enum class MON_STATE
 {
 	IDLE,
-	PATROL,
 	TRACE,
 	ATT,
-	RUN,
 	DEAD,
 
 	SIZE,

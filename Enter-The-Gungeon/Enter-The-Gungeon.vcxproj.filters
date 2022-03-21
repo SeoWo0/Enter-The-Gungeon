@@ -189,6 +189,9 @@
     <ClInclude Include="CImageButton.h">
       <Filter>Object\Title</Filter>
     </ClInclude>
+    <ClInclude Include="CScene_Stage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCollider.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="CImageButton.cpp">
       <Filter>Object\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Stage.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

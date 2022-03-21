@@ -7,7 +7,7 @@ private:
 	
 public:
 	CScene_Title();
-	~CScene_Title();
+	virtual ~CScene_Title();
 
 	virtual void Enter();
 	virtual void Exit();

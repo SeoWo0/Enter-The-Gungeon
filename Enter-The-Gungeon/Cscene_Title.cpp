@@ -15,7 +15,7 @@ CScene_Title::~CScene_Title()
 
 void ClickStartButton(DWORD_PTR, DWORD_PTR)
 {
-	// CHANGESCN(GROUP_SCENE::STAGE);
+	CHANGESCN(GROUP_SCENE::STAGE);
 }
 
 void ClickQuitButton(DWORD_PTR, DWORD_PTR)
