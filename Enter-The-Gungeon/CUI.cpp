@@ -60,12 +60,12 @@ void CUI::render()
 
 	if (m_bCameraAffected)	// 카메라 영향 받으면 랜더링 좌표로
 	{
-		fptPos = CCameraManager::getInst()->GetRenderPos(fptPos);
+		fptPos = CCameraManager::GetInst()->GetRenderPos(fptPos);
 	}
 
 	if (m_bLbtnDown)
 	{
-		CRenderManager::getInst()->RenderRectangle(
+		CRenderManager::GetInst()->RenderRectangle(
 			fptPos.x,
 			fptPos.y,
 			fptPos.x + fptScale.x,
@@ -74,7 +74,7 @@ void CUI::render()
 	}
 	else
 	{
-		CRenderManager::getInst()->RenderRectangle(
+		CRenderManager::GetInst()->RenderRectangle(
 			fptPos.x,
 			fptPos.y,
 			fptPos.x + fptScale.x,
@@ -172,7 +172,7 @@ void CUI::MouseOnCheck()
 
 	if (m_bCameraAffected)
 	{
-		fptMousePos = CCameraManager::getInst()->GetRenderPos(fptMousePos);
+		fptMousePos = CCameraManager::GetInst()->GetRenderPos(fptMousePos);
 	}
 
 	if (m_fptFinalPos.x <= fptMousePos.x && fptMousePos.x <= m_fptFinalPos.x + fptScale.x

@@ -16,7 +16,7 @@ void CImageButton::render()
     if (nullptr == m_pImg)
         return;
 
-    CRenderManager::getInst()->RenderImage(
+    CRenderManager::GetInst()->RenderImage(
         m_pImg,
         GetPos().x,
         GetPos().y,
@@ -24,7 +24,7 @@ void CImageButton::render()
         GetPos().y + GetScale().y
     );
 
-    CRenderManager::getInst()->RenderText(
+    CRenderManager::GetInst()->RenderText(
         m_strText,
         GetPos().x,
         GetPos().y,
@@ -37,7 +37,7 @@ void CImageButton::render()
 
 void CImageButton::Load(const wstring& strKey, const wstring& strPath)
 {
-    m_pImg = CResourceManager::getInst()->LoadD2DImage(strKey, strPath);
+    m_pImg = CResourceManager::GetInst()->LoadD2DImage(strKey, strPath);
 }
 
 void CImageButton::SetText(const wstring& str)

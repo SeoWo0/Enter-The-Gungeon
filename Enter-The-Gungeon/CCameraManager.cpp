@@ -22,7 +22,7 @@ CCameraManager::~CCameraManager()
 
 void CCameraManager::init()
 {
-	m_pImg = CResourceManager::getInst()->CreateTexture(L"CameraTex", WINSIZEX, WINSIZEY);
+	m_pImg = CResourceManager::GetInst()->CreateTexture(L"CameraTex", WINSIZEX, WINSIZEY);
 }
 
 void CCameraManager::update()

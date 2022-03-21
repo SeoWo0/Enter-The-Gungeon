@@ -26,7 +26,7 @@ void CButtonUI::render()
 
 	if (m_strText.size() > 0)
 	{
-		CRenderManager::getInst()->RenderText(
+		CRenderManager::GetInst()->RenderText(
 			m_strText,
 			GetFinalPos().x,
 			GetFinalPos().y,
@@ -37,7 +37,7 @@ void CButtonUI::render()
 
 	if (nullptr != m_pImg)
 	{
-		CRenderManager::getInst()->RenderImage(
+		CRenderManager::GetInst()->RenderImage(
 			m_pImg,
 			GetFinalPos().x,
 			GetFinalPos().y,

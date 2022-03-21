@@ -71,7 +71,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 현재 PeekMessage의 메시지가 없는 99.99% 상황에서 게임 상황을 처리
 
     // Core 초기화
-    CCore::getInst()->init();
+    CCore::GetInst()->init();
 
     MSG msg;
     while (TRUE)
@@ -90,8 +90,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         else
         {
             // 게임 처리
-            CCore::getInst()->update();
-            CCore::getInst()->render();
+            CCore::GetInst()->update();
+            CCore::GetInst()->render();
         }
 
     }

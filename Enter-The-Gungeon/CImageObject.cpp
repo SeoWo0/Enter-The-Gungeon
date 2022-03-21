@@ -24,7 +24,7 @@ void CImageObject::render()
     if (nullptr == m_pImg)
         return;
 
-    CRenderManager::getInst()->RenderImage(
+    CRenderManager::GetInst()->RenderImage(
         m_pImg,
         GetPos().x,
         GetPos().y,
@@ -35,6 +35,6 @@ void CImageObject::render()
 
 void CImageObject::Load(const wstring& strKey, const wstring& strPath)
 {
-    m_pImg = CResourceManager::getInst()->LoadD2DImage(strKey, strPath);
+    m_pImg = CResourceManager::GetInst()->LoadD2DImage(strKey, strPath);
 }
 

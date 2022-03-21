@@ -60,6 +60,16 @@ enum class GROUP_SCENE
 	SIZE,
 };
 
+enum class GROUP_TILE
+{
+	NONE,
+	GROUND,
+	PLATFORM,
+	WALL,
+	SLOPE,
+
+	SIZE,
+};
 
 enum class MON_STATE
 {
@@ -109,18 +119,18 @@ enum class TYPE_EVENT
 #define	WINSIZEY	720
 #define WINSTYLE	WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
 
-#define DT				CTimeManager::getInst()->GetDT()
-#define fDT				CTimeManager::getInst()->GetfDT()
+#define DT				CTimeManager::GetInst()->GetDT()
+#define fDT				CTimeManager::GetInst()->GetfDT()
 
-#define KEY(key)		CKeyManager::getInst()->GetButton(key)
-#define KEYUP(key)		CKeyManager::getInst()->GetButtonUP(key)
-#define KEYDOWN(key)	CKeyManager::getInst()->GetButtonDOWN(key)
+#define KEY(key)		CKeyManager::GetInst()->GetButton(key)
+#define KEYUP(key)		CKeyManager::GetInst()->GetButtonUP(key)
+#define KEYDOWN(key)	CKeyManager::GetInst()->GetButtonDOWN(key)
 
-#define MOUSEPOS()		CKeyManager::getInst()->GetMousePos()
+#define MOUSEPOS()		CKeyManager::GetInst()->GetMousePos()
 
-#define CREATOBJ(pObj, group)	CEventManager::getInst()->EventCreateObject(pObj, group)
-#define DELETEOBJ(pObj)			CEventManager::getInst()->EventDeleteObject(pObj)
-#define CHANGESCN(scene)		CEventManager::getInst()->EventChangeScene(scene)
+#define CREATOBJ(pObj, group)	CEventManager::GetInst()->EventCreateObject(pObj, group)
+#define DELETEOBJ(pObj)			CEventManager::GetInst()->EventDeleteObject(pObj)
+#define CHANGESCN(scene)		CEventManager::GetInst()->EventChangeScene(scene)
 
 //========================================
 //## 전역변수(인스턴스, 윈도우 핸들)	##

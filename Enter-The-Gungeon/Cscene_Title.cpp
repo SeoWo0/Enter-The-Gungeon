@@ -23,6 +23,11 @@ void ClickQuitButton(DWORD_PTR, DWORD_PTR)
 	PostQuitMessage(0);
 }
 
+void ClickMapToolButton(DWORD_PTR, DWORD_PTR)
+{
+	CHANGESCN(GROUP_SCENE::TOOL);
+}
+
 
 void CScene_Title::Enter()
 {
@@ -48,12 +53,23 @@ void CScene_Title::Enter()
 	StartButton->SetScale(fPoint(100.f, 50.f));
 	StartButton->SetClickedCallBack(ClickStartButton, 0, 0);
 	AddObject(StartButton, GROUP_GAMEOBJ::UI);
+
+	// MapTool 버튼
+	CImageButton* MapToolButton = new CImageButton;
+	MapToolButton->SetText(L"맵 툴");
+	MapToolButton->Load(L"MapToolButton", L"texture\\background\\black.png");
+	MapToolButton->SetPos(fPoint(25.f, 560.f));
+	MapToolButton->SetScale(fPoint(100.f, 50.f));
+	MapToolButton->SetClickedCallBack(ClickMapToolButton, 0, 0);
+	AddObject(MapToolButton, GROUP_GAMEOBJ::UI);
+
+
 	
 	// 게임 종료 버튼
 	CImageButton* QuitButton = new CImageButton;
 	QuitButton->SetText(L"종료");
 	QuitButton->Load(L"QuitButton", L"texture\\background\\black.png");
-	QuitButton->SetPos(fPoint(25.f, 580.f));
+	QuitButton->SetPos(fPoint(25.f, 610.f));
 	QuitButton->SetScale(fPoint(100.f, 50.f));
 	QuitButton->SetClickedCallBack(ClickQuitButton, 0, 0);
 	AddObject(QuitButton, GROUP_GAMEOBJ::UI);
