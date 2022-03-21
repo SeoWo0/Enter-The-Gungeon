@@ -18,32 +18,45 @@ void ClickStartButton(DWORD_PTR, DWORD_PTR)
 	// CHANGESCN(GROUP_SCENE::STAGE);
 }
 
+void ClickQuitButton(DWORD_PTR, DWORD_PTR)
+{
+	PostQuitMessage(0);
+}
 
 
 void CScene_Title::Enter()
 {
 	// 타이틀 화면 백그라운드
-	CImageObject* backgroundObject = new CImageObject;
-	backgroundObject->Load(L"BackGround", L"texture\\background\\background.png");
-	backgroundObject->SetPos(fPoint(0.f, 0.f));
-	backgroundObject->SetScale(fPoint(WINSIZEX, WINSIZEY));
-	AddObject(backgroundObject, GROUP_GAMEOBJ::BACKGROUND);
+	CImageObject* BackgroundObject = new CImageObject;
+	BackgroundObject->Load(L"BackGround", L"texture\\background\\background.png");
+	BackgroundObject->SetPos(fPoint(0.f, 0.f));
+	BackgroundObject->SetScale(fPoint(WINSIZEX, WINSIZEY));
+	AddObject(BackgroundObject, GROUP_GAMEOBJ::BACKGROUND);
 	
 	// 타이틀 화면 로고
-	CImageObject* titleText = new CImageObject;
-	titleText->Load(L"TextTitle", L"texture\\background\\titletext.png");
-	titleText->SetPos(fPoint(350.f, 150.f));
-	titleText->SetScale(fPoint(580.f, 200.f));
-	AddObject(titleText, GROUP_GAMEOBJ::BACKGROUND);
+	CImageObject* TitleText = new CImageObject;
+	TitleText->Load(L"TextTitle", L"texture\\background\\titletext.png");
+	TitleText->SetPos(fPoint(350.f, 150.f));
+	TitleText->SetScale(fPoint(580.f, 200.f));
+	AddObject(TitleText, GROUP_GAMEOBJ::BACKGROUND);
 
 	// 게임 시작 버튼
-	CImageButton* startbutton = new CImageButton;
-	startbutton->SetName(L"시작");
-	startbutton->SetPos(fPoint(100.f, 500.f));
-	startbutton->SetScale(fPoint(100.f, 50.f));
-	startbutton->SetClickedCallBack(ClickStartButton, 0, 0);
-	AddObject(startbutton, GROUP_GAMEOBJ::UI);
-
+	CImageButton* StartButton = new CImageButton;
+	StartButton->SetText(L"시작");
+	StartButton->Load(L"StartButton", L"texture\\background\\black.png");
+	StartButton->SetPos(fPoint(25.f, 510.f));
+	StartButton->SetScale(fPoint(100.f, 50.f));
+	StartButton->SetClickedCallBack(ClickStartButton, 0, 0);
+	AddObject(StartButton, GROUP_GAMEOBJ::UI);
+	
+	// 게임 종료 버튼
+	CImageButton* QuitButton = new CImageButton;
+	QuitButton->SetText(L"종료");
+	QuitButton->Load(L"QuitButton", L"texture\\background\\black.png");
+	QuitButton->SetPos(fPoint(25.f, 580.f));
+	QuitButton->SetScale(fPoint(100.f, 50.f));
+	QuitButton->SetClickedCallBack(ClickQuitButton, 0, 0);
+	AddObject(QuitButton, GROUP_GAMEOBJ::UI);
 }
 
 void CScene_Title::Exit()
