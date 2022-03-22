@@ -148,6 +148,7 @@
     <ClInclude Include="AI.h" />
     <ClInclude Include="CAnimation.h" />
     <ClInclude Include="CAnimator.h" />
+    <ClInclude Include="CBullet.h" />
     <ClInclude Include="CButtonUI.h" />
     <ClInclude Include="CCameraManager.h" />
     <ClInclude Include="CCollider.h" />
@@ -160,6 +161,8 @@
     <ClInclude Include="CImageButton.h" />
     <ClInclude Include="CImageObject.h" />
     <ClInclude Include="CKeyManager.h" />
+    <ClInclude Include="CMonster1.h" />
+    <ClInclude Include="CMonster2.h" />
     <ClInclude Include="CPanelUI.h" />
     <ClInclude Include="CPathManager.h" />
     <ClInclude Include="CPlayer.h" />
@@ -195,6 +198,7 @@
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="CAnimation.cpp" />
     <ClCompile Include="CAnimator.cpp" />
+    <ClCompile Include="CBullet.cpp" />
     <ClCompile Include="CButtonUI.cpp" />
     <ClCompile Include="CCameraManager.cpp" />
     <ClCompile Include="CCollider.cpp" />
@@ -207,6 +211,8 @@
     <ClCompile Include="CImageButton.cpp" />
     <ClCompile Include="CImageObject.cpp" />
     <ClCompile Include="CKeyManager.cpp" />
+    <ClCompile Include="CMonster1.cpp" />
+    <ClCompile Include="CMonster2.cpp" />
     <ClCompile Include="CPanelUI.cpp" />
     <ClCompile Include="CPathManager.cpp" />
     <ClCompile Include="CPlayer.cpp" />

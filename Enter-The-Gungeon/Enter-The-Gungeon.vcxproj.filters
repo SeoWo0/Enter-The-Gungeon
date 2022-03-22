@@ -70,6 +70,12 @@
     <Filter Include="Object\Title">
       <UniqueIdentifier>{7299c995-dc2f-4a5c-9046-23d3fc0e2aec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Player">
+      <UniqueIdentifier>{f23bbd17-4b61-40c4-b45c-860aff8f40a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Monster">
+      <UniqueIdentifier>{fa86d1f6-c230-4e98-a2c6-510a53115690}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -171,9 +177,6 @@
     <ClInclude Include="CScene_Title.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="CPlayer.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="AI.h">
       <Filter>Engine\Component\AI</Filter>
     </ClInclude>
@@ -197,6 +200,18 @@
     </ClInclude>
     <ClInclude Include="CTileButton.h">
       <Filter>Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster1.h">
+      <Filter>Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster2.h">
+      <Filter>Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="CBullet.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -281,9 +296,6 @@
     <ClCompile Include="CScene_Title.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="CPlayer.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="AI.cpp">
       <Filter>Engine\Component\AI</Filter>
     </ClCompile>
@@ -307,6 +319,18 @@
     </ClCompile>
     <ClCompile Include="CTileButton.cpp">
       <Filter>Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster1.cpp">
+      <Filter>Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster2.cpp">
+      <Filter>Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -62,8 +62,6 @@ void CScene_Title::Enter()
 	MapToolButton->SetScale(fPoint(100.f, 50.f));
 	MapToolButton->SetClickedCallBack(ClickMapToolButton, 0, 0);
 	AddObject(MapToolButton, GROUP_GAMEOBJ::UI);
-
-
 	
 	// 게임 종료 버튼
 	CImageButton* QuitButton = new CImageButton;
