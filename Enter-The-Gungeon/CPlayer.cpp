@@ -9,19 +9,39 @@
 
 CPlayer::CPlayer()
 {
-	m_pImgIdle = CResourceManager::GetInst()->LoadD2DImage(L"Player_Idle", L"texture\\Animation\\PlayerIdle.bmp");
+	m_pImgIdle = CResourceManager::GetInst()->LoadD2DImage(L"Player_Idle", L"texture\\Animation\\PlayerIdle.png");
 	SetName(L"Player_Idle");
 	SetScale(fPoint(40.f, 60.f));
 
+	m_pImgWalk = CResourceManager::GetInst()->LoadD2DImage(L"Player_Walk", L"texture\\Animation\\PlayerWalk.png");
+	SetName(L"Player_Walk");
+	
+	m_pImgDodge = CResourceManager::GetInst()->LoadD2DImage(L"Player_Dodge", L"texture\\Animation\\Dodge.png");
+	SetName(L"Dodge");
+	
+
 	CreateAnimator();
+
+	// 플레이어 가만히 있을 때
 	GetAnimator()->CreateAnimation(L"Idle", m_pImgIdle, fPoint(0.f, 0.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
 	GetAnimator()->CreateAnimation(L"RightIdle", m_pImgIdle, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
 	//GetAnimator()->CreateAnimation(L"LeftIdle", m_pImgIdle, fPoint(0.f, 58.5f), fPoint(40.f, 58.5f), fPoint(40.f, 0.f), 0.25f, 4);
 	GetAnimator()->CreateAnimation(L"BackIdle", m_pImgIdle, fPoint(0.f, 120.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
 	GetAnimator()->CreateAnimation(L"RightDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
 	//GetAnimator()->CreateAnimation(L"LeftDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
-	GetAnimator()->Play(L"Idle");
 
+	// 플레이어 걸을 때
+	GetAnimator()->CreateAnimation(L"FrontWalk", m_pImgWalk, fPoint(0.f, 0.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"RightWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	//GetAnimator()->CreateAnimation(L"LeftWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"BackWalk", m_pImgWalk, fPoint(0.f, 120.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"RightDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	//GetAnimator()->CreateAnimation(L"LeftDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+
+	// 닷지 롤
+	GetAnimator()->CreateAnimation(L"FrontDodge", m_pImgDodge, fPoint(0.f, 0.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
+
+	GetAnimator()->Play(L"Idle");
 }
 
 CPlayer::~CPlayer()
@@ -66,7 +86,7 @@ void CPlayer::update()
 
 	if (KEYDOWN(VK_RBUTTON))
 	{
-		// TODO:닷지 롤 구현
+		GetAnimator()->Play(L"FrontDodge");
 	}
 
 	if (KEYDOWN('Q'))
@@ -81,4 +101,8 @@ void CPlayer::render(HDC hDC)
 {
 	component_render();
 
+}
+
+void CPlayer::DodgeRoll()
+{
 }
