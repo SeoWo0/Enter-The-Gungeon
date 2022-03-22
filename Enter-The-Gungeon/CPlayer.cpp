@@ -4,6 +4,7 @@
 #include "CAnimator.h"
 #include "CTexture.h"
 #include "CCollider.h"
+#include "CBullet.h"
 
 
 CPlayer::CPlayer()
@@ -60,7 +61,12 @@ void CPlayer::update()
 
 	if (VK_RBUTTON)
 	{
-		// TODO: 村瘤 费 备泅
+		// TODO:村瘤 费 备泅
+	}
+
+	if (KEYDOWN('Q'))
+	{
+		// TODO:级堡藕 扁瓷 备泅
 	}
 }
 

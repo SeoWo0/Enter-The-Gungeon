@@ -26,10 +26,12 @@ void CScene_Stage::Enter()
 
 
 	// Ä«¸Þ¶ó
-	CCameraManager::GetInst()->SetLookAt(fPoint(WINSIZEX / 2.f, WINSIZEY / 2.f));
+	CCameraManager::GetInst()->SetLookAt(fPoint(200.f, 360.f));
 	CCameraManager::GetInst()->SetTargetObj(pPlayer);
 	CCameraManager::GetInst()->FadeOut(1.f);
 	CCameraManager::GetInst()->FadeIn(1.f);
+
+	
 }
 
 void CScene_Stage::Exit()

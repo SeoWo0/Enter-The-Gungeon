@@ -1,5 +1,6 @@
 #pragma once
 #include "CGameObject.h"
+#include "CKeyManager.h"
 
 class CD2DImage;
 
@@ -11,9 +12,6 @@ private:
 	CD2DImage* m_pImg3;
 	float m_fSpeed = 250;
 
-	float m_fVelocity;
-	bool isLeft;
-	bool isUp;
 public:
 	CPlayer();
 	~CPlayer();
