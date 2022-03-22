@@ -20,5 +20,7 @@ public:
 
 	virtual CBullet* Clone();
 	virtual void update();
+
+	void SetDir(fVec2 vec);
 };
 

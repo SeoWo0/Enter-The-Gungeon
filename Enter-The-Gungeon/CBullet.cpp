@@ -3,8 +3,8 @@
 
 CBullet::CBullet()
 {
-	
-	isShoot = true;
+
+
 }
 
 CBullet::~CBullet()
@@ -26,4 +26,9 @@ CBullet* CBullet::Clone()
 
 void CBullet::update()
 {
+}
+
+void CBullet::SetDir(fVec2 vec)
+{
+
 }
