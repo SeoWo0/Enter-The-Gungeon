@@ -9,13 +9,18 @@
 
 CPlayer::CPlayer()
 {
-	/*m_pImg = CResourceManager::getInst()->LoadD2DImage(L"Player", L"texture\\animation\\Player_idle");
-	SetName(L"Player");
-	SetScale(fPoint(50.f, 50.f));
-	
+	m_pImgIdle = CResourceManager::GetInst()->LoadD2DImage(L"Player_Idle", L"texture\\Animation\\PlayerIdle.bmp");
+	SetName(L"Player_Idle");
+	SetScale(fPoint(40.f, 60.f));
+
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"None", m_pImg, fPoint()
-	*/
+	GetAnimator()->CreateAnimation(L"Idle", m_pImgIdle, fPoint(0.f, 0.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"RightIdle", m_pImgIdle, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
+	//GetAnimator()->CreateAnimation(L"LeftIdle", m_pImgIdle, fPoint(0.f, 58.5f), fPoint(40.f, 58.5f), fPoint(40.f, 0.f), 0.25f, 4);
+	GetAnimator()->CreateAnimation(L"BackIdle", m_pImgIdle, fPoint(0.f, 120.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"RightDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
+	//GetAnimator()->CreateAnimation(L"LeftDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
+	GetAnimator()->Play(L"Idle");
 
 }
 
@@ -54,12 +59,12 @@ void CPlayer::update()
 
 	SetPos(pos);
 
-	if (VK_LBUTTON)
+	if (KEY(VK_LBUTTON) || KEYDOWN(VK_LBUTTON))
 	{
 		// TODO:ÃÑ¾Ë ¹ß»ç ±¸Çö
 	}
 
-	if (VK_RBUTTON)
+	if (KEYDOWN(VK_RBUTTON))
 	{
 		// TODO:´åÁö ·Ñ ±¸Çö
 	}
@@ -68,14 +73,12 @@ void CPlayer::update()
 	{
 		// TODO:¼¶±¤Åº ±â´É ±¸Çö
 	}
+
+	GetAnimator()->update();
 }
 
 void CPlayer::render(HDC hDC)
 {
-	Rectangle(hDC,
-		(int)GetPos().x,
-		(int)GetPos().y,
-		(int)GetPos().x + GetScale().x,
-		(int)GetPos().y + GetScale().y
-	);
+	component_render();
+
 }

@@ -20,17 +20,12 @@ void CScene_Stage::Enter()
 {
 	CPlayer* pPlayer = new CPlayer;
 	pPlayer->SetPos(fPoint(200.f, 360.f));
-	pPlayer->SetScale(fPoint(50.f, 50.f));
 	AddObject(pPlayer, GROUP_GAMEOBJ::PLAYER);
-
 
 
 	// Ä«¸Þ¶ó
 	CCameraManager::GetInst()->SetLookAt(fPoint(200.f, 360.f));
 	CCameraManager::GetInst()->SetTargetObj(pPlayer);
-	CCameraManager::GetInst()->FadeOut(1.f);
-	CCameraManager::GetInst()->FadeIn(1.f);
-
 	
 }
 
