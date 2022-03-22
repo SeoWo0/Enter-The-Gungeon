@@ -15,10 +15,10 @@ CPlayer::CPlayer()
 
 	m_pImgWalk = CResourceManager::GetInst()->LoadD2DImage(L"Player_Walk", L"texture\\Animation\\PlayerWalk.png");
 	SetName(L"Player_Walk");
-	
+
 	m_pImgDodge = CResourceManager::GetInst()->LoadD2DImage(L"Player_Dodge", L"texture\\Animation\\Dodge.png");
 	SetName(L"Dodge");
-	
+
 
 	CreateAnimator();
 
@@ -66,7 +66,7 @@ void CPlayer::update()
 	{
 		pos.y += m_fSpeed * fDT;
 	}
-	
+
 	if (KEY('A'))
 	{
 		pos.x -= m_fSpeed * fDT;
@@ -88,7 +88,6 @@ void CPlayer::update()
 	{
 		GetAnimator()->Play(L"FrontDodge");
 	}
-
 	if (KEYDOWN('Q'))
 	{
 		// TODO:¼¶±¤Åº ±â´É ±¸Çö
@@ -101,8 +100,4 @@ void CPlayer::render(HDC hDC)
 {
 	component_render();
 
-}
-
-void CPlayer::DodgeRoll()
-{
 }
