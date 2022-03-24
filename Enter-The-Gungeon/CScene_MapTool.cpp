@@ -375,16 +375,16 @@ void CScene_MapTool::CreateTilePanel()
 	panelTile->SetPos(fPoint(WINSIZEX - 450.f, 50.f));
 
 	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.bmp");
-	for (UINT y = 0; y < 12; y++)
+	for (UINT y = 0; y < 7; y++)
 	{
-		for (UINT x = 0; x < 12; x++)
+		for (UINT x = 0; x < 6; x++)
 		{
 			CTileButton* btnTile = new CTileButton;
 			btnTile->SetScale(fPoint(CTile::SIZE_TILE, CTile::SIZE_TILE));
 			btnTile->SetPos(fPoint((float)x * CTile::SIZE_TILE, (float)y * CTile::SIZE_TILE));
 			btnTile->SetPos(btnTile->GetPos() + fPoint(8.f, 8.f));
 			btnTile->SetImage(pImg);
-			btnTile->SetIdx(y * 12 + x);
+			btnTile->SetIdx(y * 6 + x);
 			btnTile->SetClickedCallBack(ClickTileButton, (DWORD_PTR)this, (DWORD_PTR)btnTile);
 			panelTile->AddChild(btnTile);
 		}

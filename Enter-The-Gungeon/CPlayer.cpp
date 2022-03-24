@@ -19,6 +19,10 @@ CPlayer::CPlayer()
 	m_pImgDodge = CResourceManager::GetInst()->LoadD2DImage(L"Player_Dodge", L"texture\\Animation\\Dodge.png");
 	SetName(L"Dodge");
 
+	CreateCollider();
+	GetCollider()->SetScale(fPoint(30.f, 40.f));
+	GetCollider()->SetOffsetPos(fPoint(0.f, 0.f));
+
 
 	CreateAnimator();
 
@@ -40,6 +44,9 @@ CPlayer::CPlayer()
 
 	// ´åÁö ·Ñ
 	GetAnimator()->CreateAnimation(L"FrontDodge", m_pImgDodge, fPoint(0.f, 0.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
+	GetAnimator()->CreateAnimation(L"RightDodge", m_pImgDodge, fPoint(0.f, 54.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
+	GetAnimator()->CreateAnimation(L"BackDodge", m_pImgDodge, fPoint(0.f, 108.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
+	GetAnimator()->CreateAnimation(L"RightDiagDodge", m_pImgDodge, fPoint(0.f, 162.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
 
 	GetAnimator()->Play(L"Idle");
 }
@@ -81,12 +88,12 @@ void CPlayer::update()
 
 	if (KEY(VK_LBUTTON) || KEYDOWN(VK_LBUTTON))
 	{
-		// TODO:ÃÑ¾Ë ¹ß»ç ±¸Çö
+		
 	}
 
 	if (KEYDOWN(VK_RBUTTON))
 	{
-		GetAnimator()->Play(L"FrontDodge");
+		GetAnimator()->Play(L"BackDodge");
 	}
 	if (KEYDOWN('Q'))
 	{
