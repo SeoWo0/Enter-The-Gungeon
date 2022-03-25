@@ -19,7 +19,7 @@ CScene_MapTool::CScene_MapTool()
 	m_hWnd = 0;
 	m_iIdx = 0;
 	m_gTile = GROUP_TILE::NONE;
-	m_velocity = 500;
+	m_velocity = 1000;
 	m_iTileX = 0;
 	m_iTileY = 0;
 }

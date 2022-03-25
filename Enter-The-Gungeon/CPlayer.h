@@ -7,10 +7,11 @@ class CD2DImage;
 class CPlayer : public CGameObject
 {
 private:
-	CD2DImage* m_pImgIdle;
-	CD2DImage* m_pImgWalk;
-	CD2DImage* m_pImgDodge;
-	float m_fSpeed = 250;
+	CD2DImage*	m_pImgIdle;
+	CD2DImage*	m_pImgWalk;
+	CD2DImage*	m_pImgDodge;
+	float		m_fSpeed = 250;
+	int			m_iHp	 = 6;
 
 public:
 	CPlayer();
@@ -19,6 +20,9 @@ public:
 	virtual CPlayer* Clone();
 
 	virtual void update();
-	virtual void render(HDC hDC);
+	virtual void render();
+	
+	int GetHp();
+	void SetHp(int hp);
 };
 

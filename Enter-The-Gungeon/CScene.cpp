@@ -77,28 +77,9 @@ void CScene::render()
 void CScene::render_tile()
 {
     const vector<CGameObject*>& vecTile = GetGroupObject(GROUP_GAMEOBJ::TILE);
-
-    fPoint fptCamLook = CCameraManager::GetInst()->GetLookAt();
-    fPoint fptLeftTop = fptCamLook - fPoint(WINSIZEX, WINSIZEY) / 2.f;
-
-    int iLTCol = (int)fptLeftTop.x / CTile::SIZE_TILE;
-    int iLTRow = (int)fptLeftTop.y / CTile::SIZE_TILE;
-    int iLTIdx = m_iTileX * iLTRow + iLTCol;
-
-    int iClientWidth = (int)WINSIZEX / CTile::SIZE_TILE;
-    int iClientHeight = (int)WINSIZEY / CTile::SIZE_TILE;
-    for (int iCurRow = iLTRow; iCurRow <= (iLTRow + iClientHeight); ++iCurRow)
+    for (UINT i = 0; i < vecTile.size(); i++)
     {
-        for (int iCurCol = iLTCol; iCurCol <= (iLTCol + iClientWidth); ++iCurCol)
-        {
-            if (iCurCol < 0 || m_iTileX <= (UINT)iCurCol || iCurRow < 0 || m_iTileY <= (UINT)iCurRow)
-            {
-                continue;
-            }
-            int iIdx = (m_iTileX * iCurRow) + iCurCol;
-
-            vecTile[iIdx]->render();
-        }
+        vecTile[i]->render();
     }
 }
 

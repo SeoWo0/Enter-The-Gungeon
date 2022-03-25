@@ -29,8 +29,9 @@ void CScene_Stage::Enter()
 
 
 	// Ä«¸Þ¶ó
-	CCameraManager::GetInst()->SetLookAt(fPoint(200.f, 360.f));
 	CCameraManager::GetInst()->SetTargetObj(pPlayer);
+
+	CCollisionManager::GetInst()->CheckGroup(GROUP_GAMEOBJ::PLAYER, GROUP_GAMEOBJ::TILE);
 	
 }
 

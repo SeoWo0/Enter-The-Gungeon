@@ -35,11 +35,11 @@ CPlayer::CPlayer()
 	//GetAnimator()->CreateAnimation(L"LeftDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
 
 	// 플레이어 걸을 때
-	GetAnimator()->CreateAnimation(L"FrontWalk", m_pImgWalk, fPoint(0.f, 0.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
-	GetAnimator()->CreateAnimation(L"RightWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"FrontWalk", m_pImgWalk, fPoint(0.f, 0.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
+	GetAnimator()->CreateAnimation(L"RightWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
 	//GetAnimator()->CreateAnimation(L"LeftWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
-	GetAnimator()->CreateAnimation(L"BackWalk", m_pImgWalk, fPoint(0.f, 120.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
-	GetAnimator()->CreateAnimation(L"RightDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"BackWalk", m_pImgWalk, fPoint(0.f, 120.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
+	GetAnimator()->CreateAnimation(L"RightDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
 	//GetAnimator()->CreateAnimation(L"LeftDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
 
 	// 닷지 롤
@@ -49,6 +49,28 @@ CPlayer::CPlayer()
 	GetAnimator()->CreateAnimation(L"RightDiagDodge", m_pImgDodge, fPoint(0.f, 162.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
 
 	GetAnimator()->Play(L"Idle");
+
+	CAnimation* pAni;
+	pAni = GetAnimator()->FindAnimation(L"FrontWalk");
+	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
+	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
+	pAni = GetAnimator()->FindAnimation(L"RightWalk");
+	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
+	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
+	pAni = GetAnimator()->FindAnimation(L"BackWalk");
+	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
+	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
+	pAni = GetAnimator()->FindAnimation(L"RightDiagWalk");
+	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
+	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
 }
 
 CPlayer::~CPlayer()
@@ -67,21 +89,25 @@ void CPlayer::update()
 	if (KEY('W'))
 	{
 		pos.y -= m_fSpeed * fDT;
+		GetAnimator()->Play(L"BackWalk");
 	}
 
 	if (KEY('S'))
 	{
 		pos.y += m_fSpeed * fDT;
+		GetAnimator()->Play(L"FrontWalk");
 	}
 
 	if (KEY('A'))
 	{
 		pos.x -= m_fSpeed * fDT;
+		//GetAnimator()->Play(L"FrontWalk");
 	}
 
 	if (KEY('D'))
 	{
 		pos.x += m_fSpeed * fDT;
+		GetAnimator()->Play(L"RightWalk");
 	}
 
 	SetPos(pos);
@@ -93,7 +119,7 @@ void CPlayer::update()
 
 	if (KEYDOWN(VK_RBUTTON))
 	{
-		GetAnimator()->Play(L"BackDodge");
+		
 	}
 	if (KEYDOWN('Q'))
 	{
@@ -103,8 +129,18 @@ void CPlayer::update()
 	GetAnimator()->update();
 }
 
-void CPlayer::render(HDC hDC)
+void CPlayer::render()
 {
 	component_render();
 
+}
+
+int CPlayer::GetHp()
+{
+	return m_iHp;
+}
+
+void CPlayer::SetHp(int hp)
+{
+	m_iHp = hp;
 }
