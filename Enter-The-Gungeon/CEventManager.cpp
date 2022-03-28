@@ -2,6 +2,7 @@
 #include "CEventManager.h"
 #include "CGameObject.h"
 #include "CScene.h"
+#include "AI.h"
 
 CEventManager::CEventManager()
 {
@@ -99,3 +100,14 @@ void CEventManager::EventChangeScene(GROUP_SCENE scene)
 
 	AddEvent(event);
 }
+
+void CEventManager::EventChangeAIState(AI* ai, STATE_MON state)
+{
+	tEvent event = {};
+	event.eEven = TYPE_EVENT::CHANGE_AI_STATE;
+	event.lParam = (DWORD_PTR)ai;
+	event.wParam = (DWORD_PTR)state;
+
+	CEventManager::GetInst()->AddEvent(event);
+}
+

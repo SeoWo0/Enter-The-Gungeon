@@ -2,12 +2,15 @@
 
 #include "CGameObject.h"
 
+class CD2DImage;
+
 class CBullet : public CGameObject
 {
 private:
-	bool	m_bIsShoot = true;	// 지금 쏠수있는 상황인지
-	float	m_fSpeed = 300;		// 총알 속도
-	fVec2	m_fvDIr;			// 총알 각도
+	CD2DImage* m_pImgPlayerBullet;	// 플레이어 총알 이미지
+	float	m_fSpeed = 350;			// 총알 속도
+	fVec2	m_fvDIr;				// 총알 각도
+
 
 public:
 	CBullet();
@@ -20,6 +23,5 @@ public:
 	void SetDir(fVec2 vec);
 	void SetSpeed(float speed);
 	void OnCollisionEnter(CCollider* pOther);
-	bool Cantshoot();
 };
 

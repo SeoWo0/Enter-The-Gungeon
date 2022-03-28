@@ -204,14 +204,14 @@
     <ClInclude Include="CPlayer.h">
       <Filter>Object\Player</Filter>
     </ClInclude>
-    <ClInclude Include="CMonster1.h">
-      <Filter>Object\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="CMonster2.h">
+    <ClInclude Include="CMonster.h">
       <Filter>Object\Monster</Filter>
     </ClInclude>
     <ClInclude Include="CBullet.h">
       <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CTraceState.h">
+      <Filter>Engine\Component\AI\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -323,14 +323,14 @@
     <ClCompile Include="CPlayer.cpp">
       <Filter>Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="CMonster1.cpp">
-      <Filter>Object\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="CMonster2.cpp">
+    <ClCompile Include="CMonster.cpp">
       <Filter>Object\Monster</Filter>
     </ClCompile>
     <ClCompile Include="CBullet.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTraceState.cpp">
+      <Filter>Engine\Component\AI\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

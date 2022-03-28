@@ -6,6 +6,7 @@
 #include "CCollider.h"
 #include "CBullet.h"
 
+CPlayer* CPlayer::instance = nullptr;
 
 CPlayer::CPlayer()
 {
@@ -29,29 +30,36 @@ CPlayer::CPlayer()
 	// 플레이어 가만히 있을 때
 	GetAnimator()->CreateAnimation(L"Idle", m_pImgIdle, fPoint(0.f, 0.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
 	GetAnimator()->CreateAnimation(L"RightIdle", m_pImgIdle, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
-	//GetAnimator()->CreateAnimation(L"LeftIdle", m_pImgIdle, fPoint(0.f, 58.5f), fPoint(40.f, 58.5f), fPoint(40.f, 0.f), 0.25f, 4);
+	GetAnimator()->CreateAnimation(L"LeftIdle", m_pImgIdle, fPoint(0.f, 58.5f), fPoint(40.f, 58.5f), fPoint(40.f, 0.f), 0.25f, 4, true);
 	GetAnimator()->CreateAnimation(L"BackIdle", m_pImgIdle, fPoint(0.f, 120.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
 	GetAnimator()->CreateAnimation(L"RightDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
-	//GetAnimator()->CreateAnimation(L"LeftDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4);
+	GetAnimator()->CreateAnimation(L"LeftDiagIdle", m_pImgIdle, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 4, true);
 
 	// 플레이어 걸을 때
 	GetAnimator()->CreateAnimation(L"FrontWalk", m_pImgWalk, fPoint(0.f, 0.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
 	GetAnimator()->CreateAnimation(L"RightWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
-	//GetAnimator()->CreateAnimation(L"LeftWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"LeftWalk", m_pImgWalk, fPoint(0.f, 60.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6, true);
 	GetAnimator()->CreateAnimation(L"BackWalk", m_pImgWalk, fPoint(0.f, 120.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
 	GetAnimator()->CreateAnimation(L"RightDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6);
-	//GetAnimator()->CreateAnimation(L"LeftDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(40.f, 60.f), fPoint(40.f, 0.f), 0.25f, 6);
+	GetAnimator()->CreateAnimation(L"LeftDiagWalk", m_pImgWalk, fPoint(0.f, 180.f), fPoint(46.f, 60.f), fPoint(46.f, 0.f), 0.125f, 6, true);
 
 	// 닷지 롤
 	GetAnimator()->CreateAnimation(L"FrontDodge", m_pImgDodge, fPoint(0.f, 0.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
 	GetAnimator()->CreateAnimation(L"RightDodge", m_pImgDodge, fPoint(0.f, 54.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
+	GetAnimator()->CreateAnimation(L"LeftDodge", m_pImgDodge, fPoint(0.f, 54.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9, true);
 	GetAnimator()->CreateAnimation(L"BackDodge", m_pImgDodge, fPoint(0.f, 108.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
 	GetAnimator()->CreateAnimation(L"RightDiagDodge", m_pImgDodge, fPoint(0.f, 162.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9);
+	GetAnimator()->CreateAnimation(L"LeftDiagDodge", m_pImgDodge, fPoint(0.f, 162.f), fPoint(60.f, 54.f), fPoint(60.f, 0.f), 0.1f, 9, true);
 
 	GetAnimator()->Play(L"Idle");
 
 	CAnimation* pAni;
 	pAni = GetAnimator()->FindAnimation(L"FrontWalk");
+	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
+	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
+	pAni = GetAnimator()->FindAnimation(L"LeftWalk");
 	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
 	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
 	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
@@ -71,6 +79,11 @@ CPlayer::CPlayer()
 	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
 	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
 	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
+	pAni = GetAnimator()->FindAnimation(L"LeftDiagWalk");
+	pAni->GetFrame(1).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(2).fptOffset = fPoint(0.f, -5.f);
+	pAni->GetFrame(4).fptOffset = fPoint(0.f, -10.f);
+	pAni->GetFrame(5).fptOffset = fPoint(0.f, -5.f);
 }
 
 CPlayer::~CPlayer()
@@ -84,8 +97,10 @@ CPlayer* CPlayer::Clone()
 
 void CPlayer::update()
 {
-	fPoint pos = GetPos();
+	m_fLastBulletTime += fDT;
 
+
+	fPoint pos = GetPos();
 	if (KEY('W'))
 	{
 		pos.y -= m_fSpeed * fDT;
@@ -101,7 +116,7 @@ void CPlayer::update()
 	if (KEY('A'))
 	{
 		pos.x -= m_fSpeed * fDT;
-		//GetAnimator()->Play(L"FrontWalk");
+		GetAnimator()->Play(L"LeftWalk");
 	}
 
 	if (KEY('D'))
@@ -112,14 +127,14 @@ void CPlayer::update()
 
 	SetPos(pos);
 
-	if (KEY(VK_LBUTTON) || KEYDOWN(VK_LBUTTON))
+	if (KEY(VK_LBUTTON))
 	{
-		
+		CreateBullet(fPoint (0,0));
 	}
 
 	if (KEYDOWN(VK_RBUTTON))
 	{
-		
+	
 	}
 	if (KEYDOWN('Q'))
 	{
@@ -127,6 +142,11 @@ void CPlayer::update()
 	}
 
 	GetAnimator()->update();
+}
+
+void CPlayer::update_Ani()
+{
+
 }
 
 void CPlayer::render()
@@ -143,4 +163,30 @@ int CPlayer::GetHp()
 void CPlayer::SetHp(int hp)
 {
 	m_iHp = hp;
+}
+
+void CPlayer::RegisterPlayer()
+{
+	instance = this;
+}
+
+CPlayer* CPlayer::GetPlayer()
+{
+	return instance;
+}
+
+
+void CPlayer::CreateBullet(fPoint pos)
+{
+	if (m_fLastBulletTime > m_fCooltimeBullet)
+	{
+		m_fLastBulletTime = 0.f;
+		CBullet* PlayerBullet = new CBullet;
+		PlayerBullet->SetPos(GetPos());
+		fPoint PlayerPos = GetPos();
+		fPoint MousePos = CCameraManager::GetInst()->GetRealPos(MOUSEPOS());
+		fVec2 BulletDir = MousePos - PlayerPos;
+		PlayerBullet->SetDir(BulletDir.normalize());
+		CREATOBJ(PlayerBullet, GROUP_GAMEOBJ::BULLET_PLAYER);
+	}
 }

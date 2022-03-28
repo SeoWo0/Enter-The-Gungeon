@@ -44,8 +44,8 @@ enum class GROUP_GAMEOBJ
 	TILE,
 	PLAYER,
 	MONSTER,
-	MISSILE_PLAYER,
-	MISSILE_MONSTER,
+	BULLET_PLAYER,
+	BULLET_MONSTER,
 
 	UI,		// UI는 모든 게임오브젝트 중 최상단 Layer에 위치
 	SIZE,
@@ -64,14 +64,13 @@ enum class GROUP_TILE
 {
 	NONE,
 	GROUND,
-	PLATFORM,
-	WALL,
 	SLOPE,
-
+	WALL,
+		
 	SIZE,
 };
 
-enum class MON_STATE
+enum class STATE_MON
 {
 	IDLE,
 	TRACE,
@@ -91,6 +90,7 @@ enum class TYPE_EVENT
 	CREATE_OBJECT,
 	DELETE_OBJECT,
 	CHANGE_SCENE,
+	CHANGE_AI_STATE,
 
 	SIZE,
 };
@@ -131,6 +131,7 @@ enum class TYPE_EVENT
 #define CREATOBJ(pObj, group)	CEventManager::GetInst()->EventCreateObject(pObj, group)
 #define DELETEOBJ(pObj)			CEventManager::GetInst()->EventDeleteObject(pObj)
 #define CHANGESCN(scene)		CEventManager::GetInst()->EventChangeScene(scene)
+#define CHANGEAISTATE(ai, state)	CEventManager::GetInst()->EventChangeAIState(ai, state)
 
 //========================================
 //## 전역변수(인스턴스, 윈도우 핸들)	##
