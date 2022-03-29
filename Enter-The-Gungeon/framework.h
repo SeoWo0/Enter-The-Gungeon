@@ -128,9 +128,9 @@ enum class TYPE_EVENT
 
 #define MOUSEPOS()		CKeyManager::GetInst()->GetMousePos()
 
-#define CREATOBJ(pObj, group)	CEventManager::GetInst()->EventCreateObject(pObj, group)
-#define DELETEOBJ(pObj)			CEventManager::GetInst()->EventDeleteObject(pObj)
-#define CHANGESCN(scene)		CEventManager::GetInst()->EventChangeScene(scene)
+#define CREATOBJ(pObj, group)		CEventManager::GetInst()->EventCreateObject(pObj, group)
+#define DELETEOBJ(pObj)				CEventManager::GetInst()->EventDeleteObject(pObj)
+#define CHANGESCN(scene)			CEventManager::GetInst()->EventChangeScene(scene)
 #define CHANGEAISTATE(ai, state)	CEventManager::GetInst()->EventChangeAIState(ai, state)
 
 //========================================

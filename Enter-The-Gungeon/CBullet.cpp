@@ -8,8 +8,9 @@ CBullet::CBullet()
 	SetName(L"PlayerBullet");
 	SetScale(fPoint(20.f, 20.f));
 
+
 	CreateCollider();
-	GetCollider()->SetScale(GetScale());
+	GetCollider()->SetScale(fPoint(15.f, 15.f));
 }
 
 CBullet::~CBullet()
@@ -34,6 +35,7 @@ void CBullet::render()
 {
 
 	fPoint RenderPos = CCameraManager::GetInst()->GetRenderPos(GetPos());
+
 	CRenderManager::GetInst()->RenderImage(m_pImgPlayerBullet,
 		RenderPos.x,
 		RenderPos.y,

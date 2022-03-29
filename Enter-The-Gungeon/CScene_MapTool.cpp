@@ -32,7 +32,7 @@ void CScene_MapTool::update()
 {
 	CScene::update();
 
-	if (KEYDOWN(VK_TAB))
+	if (KEYDOWN(VK_INSERT))
 	{
 		CHANGESCN(GROUP_SCENE::TITLE);
 	}
@@ -167,7 +167,7 @@ void CScene_MapTool::CreateTile(UINT xSize, UINT ySize)
 	m_iTileX = xSize;
 	m_iTileY = ySize;
 
-	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.bmp");
+	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.png");
 
 	for (UINT y = 0; y < ySize; y++)
 	{
@@ -237,7 +237,7 @@ void CScene_MapTool::LoadTile(const wstring& strPath)
 	CreateTile(xCount, yCount);
 
 	const vector<CGameObject*>& vecTile = GetGroupObject(GROUP_GAMEOBJ::TILE);
-	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.bmp");
+	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.png");
 	CTile* pTile = new CTile;
 
 	for (UINT i = 0; i < tileCount; i++)
@@ -374,8 +374,8 @@ void CScene_MapTool::CreateTilePanel()
 	panelTile->SetScale(fPoint(400.f, 600.f));
 	panelTile->SetPos(fPoint(WINSIZEX - 450.f, 50.f));
 
-	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.bmp");
-	for (UINT y = 0; y < 7; y++)
+	CD2DImage* pImg = CResourceManager::GetInst()->LoadD2DImage(L"Tile", L"texture\\tile\\tilemap.png");
+	for (UINT y = 0; y < 8; y++)
 	{
 		for (UINT x = 0; x < 6; x++)
 		{

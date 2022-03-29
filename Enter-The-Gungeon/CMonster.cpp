@@ -19,7 +19,6 @@ CMonster::CMonster()
 
 	CreateCollider();
 	GetCollider()->SetScale(fPoint(30.f, 40.f));
-	GetCollider()->SetOffsetPos(fPoint(0.f, 0.f));
 
 	CreateAnimator();
 	// 몬스터 가만히 있을때
